@@ -292,7 +292,21 @@ dadosCam_t_e_ta(eTruck01,17,15,53,18,0).
 dadosCam_t_e_ta(eTruck01,17,16,67,25,0).
 
 
+%entrega(<idEntrega>,<data>,<massaEntrefa>,<armazemEntrega>,<tempoColoc>,<tempoRet>)
+entrega(4439, 20221205, 200, 1, 8, 10).
+entrega(4438, 20221205, 150, 9, 7, 9).
+entrega(4445, 20221205, 100, 3, 5, 7).
+entrega(4443, 20221205, 120, 8, 6, 8).
+entrega(4449, 20221205, 300, 11, 15, 20).
 
-bnb(Orig,Dest,Cam,Custo):- bnb2(Dest,[(0,[Orig])],Cam,Custo).
-bnb2(Dest,[(Custo,[Dest|T])|_],Cam,Custo):- reverse([Dest|T],Cam).
-bnb2(Dest,[(Ca,LA)|Outros],Cam,Custo):- LA=[Act|_], findall((CaX,[X|LA]),(Dest\==Act,dadosCam_t_e_ta(_,Act,X,CustoX,_,_),\+ member(X,LA),CaX is CustoX + Ca),Novos),append(Outros,Novos,Todos),sort(Todos,TodosOrd),bnb2(Dest,TodosOrd,Cam,Custo).
+
+armazens(L):- findall(Id, entrega(_,_,_,Id,_,_),L). 
+
+addMatosinhos(WI, WF):- matosinhos(Id), append([Id|WI],[Id],WF).
+
+viagens([],[]).
+viagens(LV):- armazens(LW), findall(Viagem, permutation(LW, V), LV).
+viagens([V|LV], [R|WF]):- addMatosinhos(V, R),write(R),nl, viagens(LV, WF).
+viagens1(WF):-viagens(LV), viagens(LV, WF).
+
+matosinhos(5).
