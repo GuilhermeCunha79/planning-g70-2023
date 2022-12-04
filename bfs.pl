@@ -113,7 +113,6 @@ bestfs2(WarehouseList, Path, Orig, FinalPath):-
 
 %HeuristicaMaiorMassa
 
-
 bestfsWeight(WarehouseList, Date, Final):- Orig is 5,
     bestfs3(WarehouseList,Date, [Orig], FinalPath),
    append(FinalPath, [5],Final).
@@ -139,8 +138,7 @@ bestfs3(WarehouseList,Date, Path, FinalPath):-
     bestfs3(ArmazensRestantes,Date, [ThisWarehouse|Path], FinalPath).
 
 
-
-/*%HeuristicaWeightAndDistance
+%HeuristicaWeightAndDistance
 
 bestfsW(WarehouseList,Date, Final):- Orig is 5,
     bestfsW1(WarehouseList,Date, [Orig], Orig, FinalPath),
@@ -165,7 +163,7 @@ bestfsW1(WarehouseList,Date, Path, Orig, FinalPath):-
     ReverseList = [(_,[ThisWarehouse|_])|_],
 
     delete(WarehouseList, ThisWarehouse, ArmazensRestantes),
-    bestfsW1(ArmazensRestantes,Date, [ThisWarehouse|Path], ThisWarehouse, FinalPath).*/
+    bestfsW1(ArmazensRestantes,Date, [ThisWarehouse|Path], ThisWarehouse, FinalPath).
 
 
 
