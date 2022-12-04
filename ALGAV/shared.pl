@@ -16,7 +16,7 @@ calcula_Tara(Tara_Camiao, [Carga_Camiao|Lista_Cargas], [Carga_Tara|Lista_Tara_Ca
 calcula_Tara(Tara_Camiao,Lista_Cargas, Lista_Tara_Carga), 
 Carga_Tara is Carga_Camiao + Tara_Camiao.
 
-% calcula a carga dada uma lista de armazens e uma lista de Cargas tendo em conta as entregas da data dada e soma as suas massas 
+% calcula a carga dada uma lista de armazens tendo em conta as entregas da data dada e soma as suas massas 
 carga(_, [], [], 0):-!.
 carga(Data, [Armazem_Entrega|Lista_Armazens], [Carga_Camiao|Lista_Cargas], Carga_Camiao):-
 carga(Data, Lista_Armazens, Lista_Cargas, Carga_Camiao1), 
