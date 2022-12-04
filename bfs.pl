@@ -112,7 +112,7 @@ bestfs2(WarehouseList, Path, Orig, FinalPath):-
 
 
 %HeuristicaMaiorMassa
-/*
+
 
 bestfsWeight(WarehouseList, Date, Final):- Orig is 5,
     bestfs3(WarehouseList,Date, [Orig], FinalPath),
@@ -137,7 +137,7 @@ bestfs3(WarehouseList,Date, Path, FinalPath):-
 
     delete(WarehouseList, ThisWarehouse, ArmazensRestantes),
     bestfs3(ArmazensRestantes,Date, [ThisWarehouse|Path], FinalPath).
-*/
+
 
 
 /*%HeuristicaWeightAndDistance
