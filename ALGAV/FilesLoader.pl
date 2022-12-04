@@ -7,6 +7,6 @@
 
 :-compile('baseConhecimento.pl').
 
-:-compile('kb.pl').
+:-compile('us1.pl').
 
 :-compile('us2.pl').
